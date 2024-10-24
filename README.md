@@ -26,7 +26,7 @@ npm install
 
 2. Configurar o banco de dados:
 * Crie um banco de dados MongoDB local ou use o MongoDB Atlas.
-* Configure a string de conexão no arquivo index.ts
+* Configure a string de conexão no arquivo server.ts
 
 3. Executar o servidor:
 `npm start`

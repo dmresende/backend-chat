@@ -1,21 +1,24 @@
+import * as dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import http from "http";
 import { Server } from "socket.io";
 
+dotenv.config();
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
 const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI;
 
 //conexão com mongoDB
 mongoose
-  .connect("string_conection")
+  .connect(MONGO_URI as string)
   .then(() => console.log("Conectado ao MongoDB 🚀"))
   .catch((err) => console.log("Erro ao conectar ao MongoDB", err));
 
-// Middleware
+// Middleware converte para obj js +json
 app.use(express.json());
 // ... (outros middlewares e rotas)
 
