@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import http from "http";
 import { Server } from "socket.io";
+import authRoutes from "./routes/authRoutes";
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,9 @@ mongoose
 app.use(express.json());
 // ... (outros middlewares e rotas)
 
+//chamada das rotas
+app.use("/auth", authRoutes);
+
 //inicio abertura do meu socket.io
 io.on("connection", (socket) => {
   console.log("Socket conectado ", socket.id);
@@ -33,5 +37,5 @@ io.on("connection", (socket) => {
 
 //escuta meu server
 server.listen(PORT, () => {
-  console.log(`Servidor rodando em localhost:${PORT}`);
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

@@ -1,7 +1,9 @@
 # Chat em Tempo Real
+
 Este projeto implementa um aplicativo de chat em tempo real usando Node.JS/TS com Express, MongoDB e Socket.IO.
 
 ## Objetivo
+
 Criar um sistema de chat que permita aos usuários:
 
 * Cadastrar-se e fazer login.
@@ -10,32 +12,32 @@ Criar um sistema de chat que permita aos usuários:
 * Persistir as mensagens no banco de dados.
 
 ## Tecnologias Utilizadas
-* **Backend:** Node.js, Express, Mongoose, Passport.js, bcryptjs, jsonwebtoken, Socket.IO.
+
+* **Backend:** Node.js, TypeScript, Express, Mongoose, Passport.js, bcryptjs, jsonwebtoken, Socket.IO.
 * **Banco de Dados:** MongoDB.
 * **Frontend:** (Ainda em desenvolvimento - React/Next.js).
 
+## Arquitetura
+
+O backend do projeto segue uma arquitetura baseada em camadas, com separação de responsabilidades:
+
+* **`src/server.ts` (Servidor principal):** Ponto de entrada da aplicação. Configura o servidor Express, os middlewares e registra os roteadores.
+* **`src/routes/*` (Roteadores):** Definem as rotas da API e chamam os controllers correspondentes.  Agrupam rotas relacionadas por funcionalidade (ex: autenticação).
+* **`src/controllers/*` (Controllers):** Contém a lógica de negócio das rotas.  Recebem as requisições, validam os dados, interagem com os models e retornam as respostas.
+* **`src/models/*` (Models):**  Representam as entidades da aplicação (ex: usuário, mensagem) e definem como os dados são armazenados no banco de dados.
+* **`dist/*` (Build):** Contém os arquivos JavaScript transpilados pelo TypeScript, que são usados em produção.
+
+
 ## Como Executar
-**Clonar o repositório:**
-```
-git clone <https://github.com/dmresende/backend-chat.git>
-```
 
-1. Instalar as dependências (backend):
-cd backend-chat 
-npm install
+**(Instruções de execução)**
 
-2. Configurar o banco de dados:
-* Crie um banco de dados MongoDB local ou use o MongoDB Atlas.
-* Configure a string de conexão no arquivo server.ts
 
-3. Executar o servidor:
-`npm start`
+## Próximos Passos
 
-4. Próximos Passos
-* Implementar o frontend com React/Next.js.
-* Adicionar recursos extras (ex: notificações, grupos de conversa).
-* Implementar testes unitários e de integração.
-* Dockerizar a aplicação (opcional).
+* (Próximos passos)
 
-### Contribuições
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+
+## Contribuições
+
+Contribuições são bem-vindas!  Sinta-se à vontade para abrir issues e pull requests.
