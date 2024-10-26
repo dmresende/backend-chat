@@ -3,7 +3,7 @@ import mongoose, { Document, Schema } from "mongoose";
 /* A interface para o seu modelo de usuário, especificando os 
 tipos dos campos. extends Document é importante para que o TypeScript
  reconheça os métodos do Mongoose*/
-interface IUser extends Document {
+export interface IUser extends Document {
   name: string;
   username: string;
   password: string;
