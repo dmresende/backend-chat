@@ -15,9 +15,9 @@ interface IUser extends Document {
 //esquema do seu modelo
 const userSchema: Schema = new Schema<IUser>(
   {
-    name: { String, required: true },
-    username: { String, required: true, unique: true },
-    password: { String, required: true },
+    name: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
     createdAt: { type: mongoose.Schema.Types.Date, default: Date.now },
     updatedAt: { type: mongoose.Schema.Types.Date, default: Date.now },
     photo: { String },
