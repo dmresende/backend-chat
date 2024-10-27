@@ -30,14 +30,47 @@ O backend do projeto segue uma arquitetura baseada em camadas, com separação d
 
 ## Como Executar
 
-**(Instruções de execução)**
+**Clonar o repositório:**
+```bash
+git clone https://github.com/dmresende/backend-chat.git
+```
+
+**Instalar as dependências**
+```
+cd backend-chat
+npm install
+```
+
+***Configurar o ambiente:***
+- Crie um arquivo `.env` na raiz do projeto, com base no `.env.example`, e defina as seguintes variáveis de ambiente:
+- PORT: A porta em que o servidor vai rodar (ex: 3000).
+- MONGO_URI: A string de conexão com o seu banco de dados MongoDB (local ou Atlas).
+- SECRET_KEY: Uma chave secreta forte e única para assinar os tokens JWT. Gere uma chave aleatória usando openssl rand -base64 32.
+
+***Executar o servidor***
+```
+npm start
+```
+
+***Testar as rotas***
+- Signup: Faça uma requisição `POST` para `/auth/signup` com os campos name, username, password e, opcionalmente, photo.
+-Login: Faça uma requisição `POST` para `/auth/login` com os campos username e password. Se o login for bem-sucedido, você receberá um token JWT na resposta.
+
 
 
 ## Próximos Passos
-
-* (Próximos passos)
+* Implementar a lógica do chat com Socket.IO.
+* Implementar um middleware para proteger as rotas que requerem autenticação, verificando o token JWT.
+* Criar o frontend da aplicação (React/Next.js).
+* Implementar testes (unitários e de integração).
+* Dockerizar a aplicação (opcional).
 
 
 ## Contribuições
 
 Contribuições são bem-vindas!  Sinta-se à vontade para abrir issues e pull requests.
+
+
+**Observações:**
+
+* Crie um arquivo `.env.example`  com as variáveis de ambiente,  mas sem os valores reais (para que você possa compartilhar no repositório sem expor suas credenciais).
