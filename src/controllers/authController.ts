@@ -10,7 +10,7 @@ class AuthController implements IAuthController {
     res: Response
   ): Promise<Response<any, Record<string, any>> | undefined> {
     try {
-      const { name, username, password } = req.body;
+      const { name, username, password, photo = null } = req.body;
 
       if (!name || !username || !password) {
         return res.status(400).json({ error: "Preencha todos os campos!" });
@@ -28,7 +28,7 @@ class AuthController implements IAuthController {
         name,
         username,
         password: hashedPassword,
-        photo: "",
+        photo,
       });
 
       await newUser.save();
