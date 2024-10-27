@@ -20,7 +20,6 @@ app.use(passport.initialize());
 const main = async () => {
   try {
     await connectDB();
-    console.log("Conectado ao MongoDB");
 
     // Middleware converte para obj js +json
     app.use(express.json());
