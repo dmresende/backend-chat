@@ -12,12 +12,12 @@ const configurePassport = () => {
           const user = await User.findOne({ username });
 
           if (!user) {
-            return done(null, false, { message: "User not found" });
+            return done(null, false, { message: "Usuario não encontrado" });
           }
 
           const isMatch = await bcrypt.compare(password, user.password);
           if (!isMatch) {
-            return done(null, false, { message: "Incorrect password" });
+            return done(null, false, { message: "Senha inválida" });
           }
 
           return done(null, user);

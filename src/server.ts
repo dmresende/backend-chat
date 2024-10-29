@@ -6,7 +6,7 @@ import { Server } from "socket.io";
 import authRoutes from "./routes/authRoutes";
 import configurePassport from "./config/passport";
 import connectDB from "./config/connectionDB";
-import passport from "passport"; // Importe o passport
+import passport from "passport";
 
 const app = express();
 const server = http.createServer(app);
