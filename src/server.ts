@@ -9,7 +9,7 @@ import connectDB from "./config/connectionDB";
 import passport from "passport";
 
 import swaggerUi from "swagger-ui-express";
-import swaggerFile from "./swagger-output.json";
+import fs from "fs";
 
 const app = express();
 const server = http.createServer(app);
@@ -17,7 +17,13 @@ const io = new Server(server);
 
 const PORT = process.env.PORT || 3000;
 
-app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+const swaggerFile = JSON.parse(
+  fs.readFileSync("./swagger-output.json", "utf-8")
+);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.get("/", (req, res) => {
+  res.redirect("/api-docs");
+});
 
 configurePassport();
 app.use(passport.initialize());
