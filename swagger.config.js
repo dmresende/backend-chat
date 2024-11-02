@@ -8,6 +8,7 @@ module.exports = { // Use module.exports
       description: 'API para autenticação e chat em tempo real',
     },
   },
-  apis: ['./src/routes/*.ts', './src/controllers/*.ts'], // Array de strings
+  apis: ["./src/routes/*.ts", "./src/controllers/*.ts", "./src/middlewares/*.ts"],
+
 
 };
