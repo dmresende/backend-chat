@@ -1,7 +1,7 @@
 {
   "name": "backend-chat",
   "version": "1.0.0",
-  "description": "",
+  "description": "API que fornece funcionalidades de autenticação e comunicação em tempo real utilizando Socket.io. A API permite autenticação de usuários, além de suporte a funcionalidades em tempo real para diferentes aplicações. Construída com Node.js e Express.",
   "main": "server.ts",
   "scripts": {
     "start": "nodemon --exec ts-node src/server.ts",

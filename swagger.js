@@ -8,7 +8,7 @@ const app = express();
 const doc = {
   info: {
     title: 'Backend Chat',
-    description: 'Projeto de Chat em Tempo Real',
+    description: 'API que fornece funcionalidades de autenticação e comunicação em tempo real utilizando Socket.io. A API permite autenticação de usuários, além de suporte a funcionalidades em tempo real para diferentes aplicações. Construída com Node.js e Express.',
   },
   host: 'localhost:3000',
   schemes: ['http']
