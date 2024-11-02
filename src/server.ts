@@ -11,6 +11,7 @@ import passport from "passport";
 import swaggerUi from "swagger-ui-express";
 import fs from "fs";
 import Message from "./models/Message";
+import userRoutes from "./routes/userRoutes";
 
 const app = express();
 const server = http.createServer(app);
@@ -28,6 +29,7 @@ configurePassport();
 app.use(passport.initialize());
 
 // Socket.IO
+//TODO - Refatorar as interfaces para outro arquivo.
 interface ServerToClientEvents {
   newMessage: (message: any) => void;
   error: (error: any) => void;
@@ -103,6 +105,7 @@ const main = async () => {
     app.use(express.json());
 
     app.use("/auth", authRoutes);
+    app.use("/users", userRoutes);
 
     server.listen(PORT, () => {
       console.log(`Servidor rodando em http://localhost:${PORT} 🚀`);

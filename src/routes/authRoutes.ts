@@ -1,5 +1,4 @@
 import express, { RequestHandler } from "express";
-import passport from "passport";
 import authController from "../controllers/authController";
 import IAuthController from "../controllers/IAuthController";
 import { passportAuthMiddleware } from "../middlewares/passportAuth";

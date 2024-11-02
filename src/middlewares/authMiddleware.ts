@@ -6,11 +6,7 @@ interface CustomRequest extends Request {
   user?: IUser;
 }
 
-const authMiddleware = (
-  req: CustomRequest,
-  res: Response,
-  next: NextFunction
-) => {
+const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   try {
     const authHeader = req.headers.authorization;
 
@@ -33,7 +29,11 @@ const authMiddleware = (
         return res.status(401).json({ error: "Token inválido" });
       }
 
-      req.user = decoded;
+      if (!decoded) {
+        return res.status(403).json({ error: "Token inválido." });
+      }
+
+      req.user = decoded as IUser;
       next();
     });
   } catch (error) {
