@@ -74,3 +74,6 @@ Contribuições são bem-vindas!  Sinta-se à vontade para abrir issues e pull r
 **Observações:**
 
 * Crie um arquivo `.env.example`  com as variáveis de ambiente,  mas sem os valores reais (para que você possa compartilhar no repositório sem expor suas credenciais).
+
+
+*No nomento é necessário manipular o "type": "module" para gerar a documentação do swagger.
