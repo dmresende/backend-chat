@@ -7,38 +7,32 @@ interface CustomRequest extends Request {
 }
 
 class UserController {
-  async getMe(
-    req: CustomRequest,
-    res: Response
-  ): Promise<Response<any, Record<string, any>>> {
+  async getMe(req: CustomRequest, res: Response): Promise<void> {
     try {
       if (req.user) {
-        const user = await User.findById(req.user._id); // Busca o usuário pelo ID
+        const user = await User.findById(req.user._id);
 
         if (!user) {
-          return res.status(404).json({ error: "Usuário não encontrado." });
+          res.status(404).json({ error: "Usuário não encontrado." });
         }
 
-        return res.json(user); // Retorna o usuário encontrado
+        res.json(user);
       } else {
-        return res.status(401).json({ error: "Usuário não autenticado" });
+        res.status(401).json({ error: "Usuário não autenticado" });
       }
     } catch (error) {
       console.error("Erro ao buscar usuário:", error);
-      return res.status(500).json({ error: "Erro ao buscar usuário." });
+      res.status(500).json({ error: "Erro ao buscar usuário." });
     }
   }
 
-  async getAllUsers(
-    req: Request,
-    res: Response
-  ): Promise<Response<any, Record<string, any>>> {
+  async getAllUsers(req: Request, res: Response): Promise<void> {
     try {
       const users = await User.find();
-      return res.json(users); //<- retorno explicito
+      res.json(users);
     } catch (error) {
       console.error("Erro ao buscar usuários:", error);
-      return res.status(500).json({ error: "Erro ao buscar usuários." }); //<- retorno explicito
+      res.status(500).json({ error: "Erro ao buscar usuários." });
     }
   }
 
